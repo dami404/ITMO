@@ -1,0 +1,11 @@
+isWerewolf value true
+
+(kills value "Макс") and (friendName value "Дилан")
+
+father value true
+
+hasFather value Джедайа_Хэкетт
+
+hasFriend value Эмма
+
+(mother value true) and (isGhost value true)
