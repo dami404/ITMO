@@ -1,0 +1,9 @@
+ int n = 0;
+  print('What is your name? ');
+  print('Hello, ');
+  read(n);
+  while (n>0) {
+      print(n);
+      read(n);
+  }
+  print('!');

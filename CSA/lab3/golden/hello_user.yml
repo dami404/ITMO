@@ -1,0 +1,590 @@
+in_source: |-
+  int n = 0;
+  str {10} a = '';
+
+  print('What is your name? ');
+  read(n);
+  while ( n > 0) {
+      a = a + n;
+      read(n);
+  }
+  print('Hello, ');
+  print(a);
+  print('!');
+in_stdin: |-
+  Artem
+out_code: |-
+  [{"index": 0, "opcode": "Opcode.LD", "arg1": "#", "arg2": 0},
+  {"index": 1, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 2, "opcode": "Opcode.LD", "arg1": "#", "arg2": 2011},
+  {"index": 3, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 4, "opcode": "Opcode.LD", "arg1": "#", "arg2": 0},
+  {"index": 5, "opcode": "Opcode.ST", "arg1": "=", "arg2": 2011},
+  {"index": 6, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 27},
+  {"index": 7, "opcode": "Opcode.NOP", "arg1": 87, "arg2": null},
+  {"index": 8, "opcode": "Opcode.NOP", "arg1": 104, "arg2": null},
+  {"index": 9, "opcode": "Opcode.NOP", "arg1": 97, "arg2": null},
+  {"index": 10, "opcode": "Opcode.NOP", "arg1": 116, "arg2": null},
+  {"index": 11, "opcode": "Opcode.NOP", "arg1": 32, "arg2": null},
+  {"index": 12, "opcode": "Opcode.NOP", "arg1": 105, "arg2": null},
+  {"index": 13, "opcode": "Opcode.NOP", "arg1": 115, "arg2": null},
+  {"index": 14, "opcode": "Opcode.NOP", "arg1": 32, "arg2": null},
+  {"index": 15, "opcode": "Opcode.NOP", "arg1": 121, "arg2": null},
+  {"index": 16, "opcode": "Opcode.NOP", "arg1": 111, "arg2": null},
+  {"index": 17, "opcode": "Opcode.NOP", "arg1": 117, "arg2": null},
+  {"index": 18, "opcode": "Opcode.NOP", "arg1": 114, "arg2": null},
+  {"index": 19, "opcode": "Opcode.NOP", "arg1": 32, "arg2": null},
+  {"index": 20, "opcode": "Opcode.NOP", "arg1": 110, "arg2": null},
+  {"index": 21, "opcode": "Opcode.NOP", "arg1": 97, "arg2": null},
+  {"index": 22, "opcode": "Opcode.NOP", "arg1": 109, "arg2": null},
+  {"index": 23, "opcode": "Opcode.NOP", "arg1": 101, "arg2": null},
+  {"index": 24, "opcode": "Opcode.NOP", "arg1": 63, "arg2": null},
+  {"index": 25, "opcode": "Opcode.NOP", "arg1": 32, "arg2": null},
+  {"index": 26, "opcode": "Opcode.NOP", "arg1": 0, "arg2": null},
+  {"index": 27, "opcode": "Opcode.LD", "arg1": "#", "arg2": 7},
+  {"index": 28, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 29, "opcode": "Opcode.LD", "arg1": "~", "arg2": 4093},
+  {"index": 30, "opcode": "Opcode.ST", "arg1": "=", "arg2": 2000},
+  {"index": 31, "opcode": "Opcode.CMP", "arg1": "#", "arg2": 0},
+  {"index": 32, "opcode": "Opcode.JE", "arg1": "#", "arg2": 37},
+  {"index": 33, "opcode": "Opcode.POP", "arg1": null, "arg2": null},
+  {"index": 34, "opcode": "Opcode.INC", "arg1": null, "arg2": null},
+  {"index": 35, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 36, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 29},
+  {"index": 37, "opcode": "Opcode.LD", "arg1": "=", "arg2": 2000},
+  {"index": 38, "opcode": "Opcode.ST", "arg1": "=", "arg2": 4095},
+  {"index": 39, "opcode": "Opcode.LD", "arg1": "=", "arg2": 4095},
+  {"index": 40, "opcode": "Opcode.CMP", "arg1": "#", "arg2": 0},
+  {"index": 41, "opcode": "Opcode.JB", "arg1": "#", "arg2": 57},
+  {"index": 42, "opcode": "Opcode.LD", "arg1": "#", "arg2": 2011},
+  {"index": 43, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 44, "opcode": "Opcode.LD", "arg1": "~", "arg2": 4092},
+  {"index": 45, "opcode": "Opcode.CMP", "arg1": "#", "arg2": 0},
+  {"index": 46, "opcode": "Opcode.JE", "arg1": "#", "arg2": 51},
+  {"index": 47, "opcode": "Opcode.POP", "arg1": null, "arg2": null},
+  {"index": 48, "opcode": "Opcode.INC", "arg1": null, "arg2": null},
+  {"index": 49, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 50, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 44},
+  {"index": 51, "opcode": "Opcode.LD", "arg1": "=", "arg2": 4095},
+  {"index": 52, "opcode": "Opcode.ST", "arg1": "~", "arg2": 4092},
+  {"index": 53, "opcode": "Opcode.POP", "arg1": null, "arg2": null},
+  {"index": 54, "opcode": "Opcode.LD", "arg1": "=", "arg2": 2000},
+  {"index": 55, "opcode": "Opcode.ST", "arg1": "=", "arg2": 4095},
+  {"index": 56, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 39},
+  {"index": 57, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 66},
+  {"index": 58, "opcode": "Opcode.NOP", "arg1": 72, "arg2": null},
+  {"index": 59, "opcode": "Opcode.NOP", "arg1": 101, "arg2": null},
+  {"index": 60, "opcode": "Opcode.NOP", "arg1": 108, "arg2": null},
+  {"index": 61, "opcode": "Opcode.NOP", "arg1": 108, "arg2": null},
+  {"index": 62, "opcode": "Opcode.NOP", "arg1": 111, "arg2": null},
+  {"index": 63, "opcode": "Opcode.NOP", "arg1": 44, "arg2": null},
+  {"index": 64, "opcode": "Opcode.NOP", "arg1": 32, "arg2": null},
+  {"index": 65, "opcode": "Opcode.NOP", "arg1": 0, "arg2": null},
+  {"index": 66, "opcode": "Opcode.LD", "arg1": "#", "arg2": 58},
+  {"index": 67, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 68, "opcode": "Opcode.LD", "arg1": "~", "arg2": 4092},
+  {"index": 69, "opcode": "Opcode.ST", "arg1": "=", "arg2": 2000},
+  {"index": 70, "opcode": "Opcode.CMP", "arg1": "#", "arg2": 0},
+  {"index": 71, "opcode": "Opcode.JE", "arg1": "#", "arg2": 76},
+  {"index": 72, "opcode": "Opcode.POP", "arg1": null, "arg2": null},
+  {"index": 73, "opcode": "Opcode.INC", "arg1": null, "arg2": null},
+  {"index": 74, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 75, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 68},
+  {"index": 76, "opcode": "Opcode.LD", "arg1": "#", "arg2": 2011},
+  {"index": 77, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 78, "opcode": "Opcode.LD", "arg1": "~", "arg2": 4091},
+  {"index": 79, "opcode": "Opcode.ST", "arg1": "=", "arg2": 2000},
+  {"index": 80, "opcode": "Opcode.CMP", "arg1": "#", "arg2": 0},
+  {"index": 81, "opcode": "Opcode.JE", "arg1": "#", "arg2": 86},
+  {"index": 82, "opcode": "Opcode.POP", "arg1": null, "arg2": null},
+  {"index": 83, "opcode": "Opcode.INC", "arg1": null, "arg2": null},
+  {"index": 84, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 85, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 78},
+  {"index": 86, "opcode": "Opcode.POP", "arg1": null, "arg2": null},
+  {"index": 87, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 90},
+  {"index": 88, "opcode": "Opcode.NOP", "arg1": 33, "arg2": null},
+  {"index": 89, "opcode": "Opcode.NOP", "arg1": 0, "arg2": null},
+  {"index": 90, "opcode": "Opcode.LD", "arg1": "#", "arg2": 88},
+  {"index": 91, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 92, "opcode": "Opcode.LD", "arg1": "~", "arg2": 4091},
+  {"index": 93, "opcode": "Opcode.ST", "arg1": "=", "arg2": 2000},
+  {"index": 94, "opcode": "Opcode.CMP", "arg1": "#", "arg2": 0},
+  {"index": 95, "opcode": "Opcode.JE", "arg1": "#", "arg2": 100},
+  {"index": 96, "opcode": "Opcode.POP", "arg1": null, "arg2": null},
+  {"index": 97, "opcode": "Opcode.INC", "arg1": null, "arg2": null},
+  {"index": 98, "opcode": "Opcode.PUSH", "arg1": null, "arg2": null},
+  {"index": 99, "opcode": "Opcode.JUMP", "arg1": "#", "arg2": 92},
+  {"index": 100, "opcode": "Opcode.HALT", "arg1": null, "arg2": null}]
+out_stdout: |-
+  What is your name? Hello, Artem!
+out_log: |-
+  INFO    processor:simulation    Simulation start
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:          3 | ip:          1 | dr          0 |ar:          0 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:          5 | ip:          2 | dr          0 |ar:          0 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:          9 | ip:          3 | dr       2011 |ar:          0 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:         11 | ip:          4 | dr       2011 |ar:          0 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:         15 | ip:          5 | dr          0 |ar:          0 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:         19 | ip:          6 | dr          0 |ar:       2011 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:         23 | ip:         27 | dr         27 |ar:       2011 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:         27 | ip:         28 | dr          7 |ar:       2011 | acc:          7
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:         29 | ip:         29 | dr          7 |ar:       2011 | acc:          7
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:         34 | ip:         30 | dr         87 |ar:          7 | acc:         87
+  DEBUG   data_path:output         <- W
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:         38 | ip:         31 | dr         87 |ar:       2000 | acc:         87
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:         42 | ip:         32 | dr          0 |ar:       2000 | acc:         87
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:         46 | ip:         33 | dr         37 |ar:       2000 | acc:         87
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:         48 | ip:         34 | dr         37 |ar:       2000 | acc:          7
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:         50 | ip:         35 | dr         37 |ar:       2000 | acc:          8
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:         52 | ip:         36 | dr         37 |ar:       2000 | acc:          8
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:         56 | ip:         29 | dr         29 |ar:       2000 | acc:          8
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:         61 | ip:         30 | dr        104 |ar:          8 | acc:        104
+  DEBUG   data_path:output        W <- h
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:         65 | ip:         31 | dr        104 |ar:       2000 | acc:        104
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:         69 | ip:         32 | dr          0 |ar:       2000 | acc:        104
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:         73 | ip:         33 | dr         37 |ar:       2000 | acc:        104
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:         75 | ip:         34 | dr         37 |ar:       2000 | acc:          8
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:         77 | ip:         35 | dr         37 |ar:       2000 | acc:          9
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:         79 | ip:         36 | dr         37 |ar:       2000 | acc:          9
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:         83 | ip:         29 | dr         29 |ar:       2000 | acc:          9
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:         88 | ip:         30 | dr         97 |ar:          9 | acc:         97
+  DEBUG   data_path:output        Wh <- a
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:         92 | ip:         31 | dr         97 |ar:       2000 | acc:         97
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:         96 | ip:         32 | dr          0 |ar:       2000 | acc:         97
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        100 | ip:         33 | dr         37 |ar:       2000 | acc:         97
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        102 | ip:         34 | dr         37 |ar:       2000 | acc:          9
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        104 | ip:         35 | dr         37 |ar:       2000 | acc:         10
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        106 | ip:         36 | dr         37 |ar:       2000 | acc:         10
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        110 | ip:         29 | dr         29 |ar:       2000 | acc:         10
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        115 | ip:         30 | dr        116 |ar:         10 | acc:        116
+  DEBUG   data_path:output        Wha <- t
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        119 | ip:         31 | dr        116 |ar:       2000 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        123 | ip:         32 | dr          0 |ar:       2000 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        127 | ip:         33 | dr         37 |ar:       2000 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        129 | ip:         34 | dr         37 |ar:       2000 | acc:         10
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        131 | ip:         35 | dr         37 |ar:       2000 | acc:         11
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        133 | ip:         36 | dr         37 |ar:       2000 | acc:         11
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        137 | ip:         29 | dr         29 |ar:       2000 | acc:         11
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        142 | ip:         30 | dr         32 |ar:         11 | acc:         32
+  DEBUG   data_path:output        What <- ' '
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        146 | ip:         31 | dr         32 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        150 | ip:         32 | dr          0 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        154 | ip:         33 | dr         37 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        156 | ip:         34 | dr         37 |ar:       2000 | acc:         11
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        158 | ip:         35 | dr         37 |ar:       2000 | acc:         12
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        160 | ip:         36 | dr         37 |ar:       2000 | acc:         12
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        164 | ip:         29 | dr         29 |ar:       2000 | acc:         12
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        169 | ip:         30 | dr        105 |ar:         12 | acc:        105
+  DEBUG   data_path:output        What  <- i
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        173 | ip:         31 | dr        105 |ar:       2000 | acc:        105
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        177 | ip:         32 | dr          0 |ar:       2000 | acc:        105
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        181 | ip:         33 | dr         37 |ar:       2000 | acc:        105
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        183 | ip:         34 | dr         37 |ar:       2000 | acc:         12
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        185 | ip:         35 | dr         37 |ar:       2000 | acc:         13
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        187 | ip:         36 | dr         37 |ar:       2000 | acc:         13
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        191 | ip:         29 | dr         29 |ar:       2000 | acc:         13
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        196 | ip:         30 | dr        115 |ar:         13 | acc:        115
+  DEBUG   data_path:output        What i <- s
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        200 | ip:         31 | dr        115 |ar:       2000 | acc:        115
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        204 | ip:         32 | dr          0 |ar:       2000 | acc:        115
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        208 | ip:         33 | dr         37 |ar:       2000 | acc:        115
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        210 | ip:         34 | dr         37 |ar:       2000 | acc:         13
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        212 | ip:         35 | dr         37 |ar:       2000 | acc:         14
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        214 | ip:         36 | dr         37 |ar:       2000 | acc:         14
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        218 | ip:         29 | dr         29 |ar:       2000 | acc:         14
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        223 | ip:         30 | dr         32 |ar:         14 | acc:         32
+  DEBUG   data_path:output        What is <- ' '
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        227 | ip:         31 | dr         32 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        231 | ip:         32 | dr          0 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        235 | ip:         33 | dr         37 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        237 | ip:         34 | dr         37 |ar:       2000 | acc:         14
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        239 | ip:         35 | dr         37 |ar:       2000 | acc:         15
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        241 | ip:         36 | dr         37 |ar:       2000 | acc:         15
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        245 | ip:         29 | dr         29 |ar:       2000 | acc:         15
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        250 | ip:         30 | dr        121 |ar:         15 | acc:        121
+  DEBUG   data_path:output        What is  <- y
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        254 | ip:         31 | dr        121 |ar:       2000 | acc:        121
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        258 | ip:         32 | dr          0 |ar:       2000 | acc:        121
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        262 | ip:         33 | dr         37 |ar:       2000 | acc:        121
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        264 | ip:         34 | dr         37 |ar:       2000 | acc:         15
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        266 | ip:         35 | dr         37 |ar:       2000 | acc:         16
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        268 | ip:         36 | dr         37 |ar:       2000 | acc:         16
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        272 | ip:         29 | dr         29 |ar:       2000 | acc:         16
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        277 | ip:         30 | dr        111 |ar:         16 | acc:        111
+  DEBUG   data_path:output        What is y <- o
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        281 | ip:         31 | dr        111 |ar:       2000 | acc:        111
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        285 | ip:         32 | dr          0 |ar:       2000 | acc:        111
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        289 | ip:         33 | dr         37 |ar:       2000 | acc:        111
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        291 | ip:         34 | dr         37 |ar:       2000 | acc:         16
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        293 | ip:         35 | dr         37 |ar:       2000 | acc:         17
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        295 | ip:         36 | dr         37 |ar:       2000 | acc:         17
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        299 | ip:         29 | dr         29 |ar:       2000 | acc:         17
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        304 | ip:         30 | dr        117 |ar:         17 | acc:        117
+  DEBUG   data_path:output        What is yo <- u
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        308 | ip:         31 | dr        117 |ar:       2000 | acc:        117
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        312 | ip:         32 | dr          0 |ar:       2000 | acc:        117
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        316 | ip:         33 | dr         37 |ar:       2000 | acc:        117
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        318 | ip:         34 | dr         37 |ar:       2000 | acc:         17
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        320 | ip:         35 | dr         37 |ar:       2000 | acc:         18
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        322 | ip:         36 | dr         37 |ar:       2000 | acc:         18
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        326 | ip:         29 | dr         29 |ar:       2000 | acc:         18
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        331 | ip:         30 | dr        114 |ar:         18 | acc:        114
+  DEBUG   data_path:output        What is you <- r
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        335 | ip:         31 | dr        114 |ar:       2000 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        339 | ip:         32 | dr          0 |ar:       2000 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        343 | ip:         33 | dr         37 |ar:       2000 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        345 | ip:         34 | dr         37 |ar:       2000 | acc:         18
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        347 | ip:         35 | dr         37 |ar:       2000 | acc:         19
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        349 | ip:         36 | dr         37 |ar:       2000 | acc:         19
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        353 | ip:         29 | dr         29 |ar:       2000 | acc:         19
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        358 | ip:         30 | dr         32 |ar:         19 | acc:         32
+  DEBUG   data_path:output        What is your <- ' '
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        362 | ip:         31 | dr         32 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        366 | ip:         32 | dr          0 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        370 | ip:         33 | dr         37 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        372 | ip:         34 | dr         37 |ar:       2000 | acc:         19
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        374 | ip:         35 | dr         37 |ar:       2000 | acc:         20
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        376 | ip:         36 | dr         37 |ar:       2000 | acc:         20
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        380 | ip:         29 | dr         29 |ar:       2000 | acc:         20
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        385 | ip:         30 | dr        110 |ar:         20 | acc:        110
+  DEBUG   data_path:output        What is your  <- n
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        389 | ip:         31 | dr        110 |ar:       2000 | acc:        110
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        393 | ip:         32 | dr          0 |ar:       2000 | acc:        110
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        397 | ip:         33 | dr         37 |ar:       2000 | acc:        110
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        399 | ip:         34 | dr         37 |ar:       2000 | acc:         20
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        401 | ip:         35 | dr         37 |ar:       2000 | acc:         21
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        403 | ip:         36 | dr         37 |ar:       2000 | acc:         21
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        407 | ip:         29 | dr         29 |ar:       2000 | acc:         21
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        412 | ip:         30 | dr         97 |ar:         21 | acc:         97
+  DEBUG   data_path:output        What is your n <- a
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        416 | ip:         31 | dr         97 |ar:       2000 | acc:         97
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        420 | ip:         32 | dr          0 |ar:       2000 | acc:         97
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        424 | ip:         33 | dr         37 |ar:       2000 | acc:         97
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        426 | ip:         34 | dr         37 |ar:       2000 | acc:         21
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        428 | ip:         35 | dr         37 |ar:       2000 | acc:         22
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        430 | ip:         36 | dr         37 |ar:       2000 | acc:         22
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        434 | ip:         29 | dr         29 |ar:       2000 | acc:         22
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        439 | ip:         30 | dr        109 |ar:         22 | acc:        109
+  DEBUG   data_path:output        What is your na <- m
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        443 | ip:         31 | dr        109 |ar:       2000 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        447 | ip:         32 | dr          0 |ar:       2000 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        451 | ip:         33 | dr         37 |ar:       2000 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        453 | ip:         34 | dr         37 |ar:       2000 | acc:         22
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        455 | ip:         35 | dr         37 |ar:       2000 | acc:         23
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        457 | ip:         36 | dr         37 |ar:       2000 | acc:         23
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        461 | ip:         29 | dr         29 |ar:       2000 | acc:         23
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        466 | ip:         30 | dr        101 |ar:         23 | acc:        101
+  DEBUG   data_path:output        What is your nam <- e
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        470 | ip:         31 | dr        101 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        474 | ip:         32 | dr          0 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        478 | ip:         33 | dr         37 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        480 | ip:         34 | dr         37 |ar:       2000 | acc:         23
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        482 | ip:         35 | dr         37 |ar:       2000 | acc:         24
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        484 | ip:         36 | dr         37 |ar:       2000 | acc:         24
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        488 | ip:         29 | dr         29 |ar:       2000 | acc:         24
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        493 | ip:         30 | dr         63 |ar:         24 | acc:         63
+  DEBUG   data_path:output        What is your name <- ?
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        497 | ip:         31 | dr         63 |ar:       2000 | acc:         63
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        501 | ip:         32 | dr          0 |ar:       2000 | acc:         63
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        505 | ip:         33 | dr         37 |ar:       2000 | acc:         63
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        507 | ip:         34 | dr         37 |ar:       2000 | acc:         24
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        509 | ip:         35 | dr         37 |ar:       2000 | acc:         25
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        511 | ip:         36 | dr         37 |ar:       2000 | acc:         25
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        515 | ip:         29 | dr         29 |ar:       2000 | acc:         25
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        520 | ip:         30 | dr         32 |ar:         25 | acc:         32
+  DEBUG   data_path:output        What is your name? <- ' '
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        524 | ip:         31 | dr         32 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        528 | ip:         32 | dr          0 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        532 | ip:         33 | dr         37 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        534 | ip:         34 | dr         37 |ar:       2000 | acc:         25
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        536 | ip:         35 | dr         37 |ar:       2000 | acc:         26
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        538 | ip:         36 | dr         37 |ar:       2000 | acc:         26
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        542 | ip:         29 | dr         29 |ar:       2000 | acc:         26
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        547 | ip:         30 | dr          0 |ar:         26 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        551 | ip:         31 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        555 | ip:         32 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        559 | ip:         37 | dr         37 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        563 | ip:         38 | dr         65 |ar:       2000 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        567 | ip:         39 | dr         65 |ar:       4095 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        571 | ip:         40 | dr         65 |ar:       4095 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        575 | ip:         41 | dr          0 |ar:       4095 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JB | tick:        579 | ip:         42 | dr         57 |ar:       4095 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        583 | ip:         43 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        585 | ip:         44 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        590 | ip:         45 | dr          0 |ar:       2011 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        594 | ip:         46 | dr          0 |ar:       2011 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        598 | ip:         51 | dr         51 |ar:       2011 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        602 | ip:         52 | dr         65 |ar:       4095 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        607 | ip:         53 | dr         65 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        609 | ip:         54 | dr         65 |ar:       2011 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        613 | ip:         55 | dr        114 |ar:       2000 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        617 | ip:         56 | dr        114 |ar:       4095 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        621 | ip:         39 | dr         39 |ar:       4095 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        625 | ip:         40 | dr        114 |ar:       4095 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        629 | ip:         41 | dr          0 |ar:       4095 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JB | tick:        633 | ip:         42 | dr         57 |ar:       4095 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        637 | ip:         43 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        639 | ip:         44 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        644 | ip:         45 | dr         65 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        648 | ip:         46 | dr          0 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        652 | ip:         47 | dr         51 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        654 | ip:         48 | dr         51 |ar:       2011 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        656 | ip:         49 | dr         51 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        658 | ip:         50 | dr         51 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        662 | ip:         44 | dr         44 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        667 | ip:         45 | dr          0 |ar:       2012 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        671 | ip:         46 | dr          0 |ar:       2012 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        675 | ip:         51 | dr         51 |ar:       2012 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        679 | ip:         52 | dr        114 |ar:       4095 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        684 | ip:         53 | dr        114 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        686 | ip:         54 | dr        114 |ar:       2012 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        690 | ip:         55 | dr        116 |ar:       2000 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        694 | ip:         56 | dr        116 |ar:       4095 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        698 | ip:         39 | dr         39 |ar:       4095 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        702 | ip:         40 | dr        116 |ar:       4095 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        706 | ip:         41 | dr          0 |ar:       4095 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JB | tick:        710 | ip:         42 | dr         57 |ar:       4095 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        714 | ip:         43 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        716 | ip:         44 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        721 | ip:         45 | dr         65 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        725 | ip:         46 | dr          0 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        729 | ip:         47 | dr         51 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        731 | ip:         48 | dr         51 |ar:       2011 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        733 | ip:         49 | dr         51 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        735 | ip:         50 | dr         51 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        739 | ip:         44 | dr         44 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        744 | ip:         45 | dr        114 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        748 | ip:         46 | dr          0 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        752 | ip:         47 | dr         51 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        754 | ip:         48 | dr         51 |ar:       2012 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        756 | ip:         49 | dr         51 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        758 | ip:         50 | dr         51 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        762 | ip:         44 | dr         44 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        767 | ip:         45 | dr          0 |ar:       2013 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        771 | ip:         46 | dr          0 |ar:       2013 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        775 | ip:         51 | dr         51 |ar:       2013 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        779 | ip:         52 | dr        116 |ar:       4095 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        784 | ip:         53 | dr        116 |ar:       2013 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        786 | ip:         54 | dr        116 |ar:       2013 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        790 | ip:         55 | dr        101 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        794 | ip:         56 | dr        101 |ar:       4095 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        798 | ip:         39 | dr         39 |ar:       4095 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        802 | ip:         40 | dr        101 |ar:       4095 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        806 | ip:         41 | dr          0 |ar:       4095 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JB | tick:        810 | ip:         42 | dr         57 |ar:       4095 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        814 | ip:         43 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        816 | ip:         44 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        821 | ip:         45 | dr         65 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        825 | ip:         46 | dr          0 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        829 | ip:         47 | dr         51 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        831 | ip:         48 | dr         51 |ar:       2011 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        833 | ip:         49 | dr         51 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        835 | ip:         50 | dr         51 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        839 | ip:         44 | dr         44 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        844 | ip:         45 | dr        114 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        848 | ip:         46 | dr          0 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        852 | ip:         47 | dr         51 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        854 | ip:         48 | dr         51 |ar:       2012 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        856 | ip:         49 | dr         51 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        858 | ip:         50 | dr         51 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        862 | ip:         44 | dr         44 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        867 | ip:         45 | dr        116 |ar:       2013 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        871 | ip:         46 | dr          0 |ar:       2013 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        875 | ip:         47 | dr         51 |ar:       2013 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        877 | ip:         48 | dr         51 |ar:       2013 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        879 | ip:         49 | dr         51 |ar:       2013 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        881 | ip:         50 | dr         51 |ar:       2013 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        885 | ip:         44 | dr         44 |ar:       2013 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        890 | ip:         45 | dr          0 |ar:       2014 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        894 | ip:         46 | dr          0 |ar:       2014 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        898 | ip:         51 | dr         51 |ar:       2014 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        902 | ip:         52 | dr        101 |ar:       4095 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        907 | ip:         53 | dr        101 |ar:       2014 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        909 | ip:         54 | dr        101 |ar:       2014 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        913 | ip:         55 | dr        109 |ar:       2000 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:        917 | ip:         56 | dr        109 |ar:       4095 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        921 | ip:         39 | dr         39 |ar:       4095 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        925 | ip:         40 | dr        109 |ar:       4095 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        929 | ip:         41 | dr          0 |ar:       4095 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JB | tick:        933 | ip:         42 | dr         57 |ar:       4095 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        937 | ip:         43 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        939 | ip:         44 | dr       2011 |ar:       4095 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        944 | ip:         45 | dr         65 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        948 | ip:         46 | dr          0 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        952 | ip:         47 | dr         51 |ar:       2011 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        954 | ip:         48 | dr         51 |ar:       2011 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        956 | ip:         49 | dr         51 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        958 | ip:         50 | dr         51 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        962 | ip:         44 | dr         44 |ar:       2011 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        967 | ip:         45 | dr        114 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        971 | ip:         46 | dr          0 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        975 | ip:         47 | dr         51 |ar:       2012 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:        977 | ip:         48 | dr         51 |ar:       2012 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:        979 | ip:         49 | dr         51 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:        981 | ip:         50 | dr         51 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:        985 | ip:         44 | dr         44 |ar:       2012 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:        990 | ip:         45 | dr        116 |ar:       2013 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:        994 | ip:         46 | dr          0 |ar:       2013 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:        998 | ip:         47 | dr         51 |ar:       2013 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1000 | ip:         48 | dr         51 |ar:       2013 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1002 | ip:         49 | dr         51 |ar:       2013 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1004 | ip:         50 | dr         51 |ar:       2013 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1008 | ip:         44 | dr         44 |ar:       2013 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1013 | ip:         45 | dr        101 |ar:       2014 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1017 | ip:         46 | dr          0 |ar:       2014 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1021 | ip:         47 | dr         51 |ar:       2014 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1023 | ip:         48 | dr         51 |ar:       2014 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1025 | ip:         49 | dr         51 |ar:       2014 | acc:       2015
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1027 | ip:         50 | dr         51 |ar:       2014 | acc:       2015
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1031 | ip:         44 | dr         44 |ar:       2014 | acc:       2015
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1036 | ip:         45 | dr          0 |ar:       2015 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1040 | ip:         46 | dr          0 |ar:       2015 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1044 | ip:         51 | dr         51 |ar:       2015 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1048 | ip:         52 | dr        109 |ar:       4095 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1053 | ip:         53 | dr        109 |ar:       2015 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1055 | ip:         54 | dr        109 |ar:       2015 | acc:       2015
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1059 | ip:         55 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1063 | ip:         56 | dr          0 |ar:       4095 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1067 | ip:         39 | dr         39 |ar:       4095 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1071 | ip:         40 | dr          0 |ar:       4095 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1075 | ip:         41 | dr          0 |ar:       4095 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JB | tick:       1079 | ip:         57 | dr         57 |ar:       4095 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1083 | ip:         66 | dr         66 |ar:       4095 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1087 | ip:         67 | dr         58 |ar:       4095 | acc:         58
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1089 | ip:         68 | dr         58 |ar:       4095 | acc:         58
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1094 | ip:         69 | dr         72 |ar:         58 | acc:         72
+  DEBUG   data_path:output        What is your name?  <- H
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1098 | ip:         70 | dr         72 |ar:       2000 | acc:         72
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1102 | ip:         71 | dr          0 |ar:       2000 | acc:         72
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1106 | ip:         72 | dr         76 |ar:       2000 | acc:         72
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1108 | ip:         73 | dr         76 |ar:       2000 | acc:         58
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1110 | ip:         74 | dr         76 |ar:       2000 | acc:         59
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1112 | ip:         75 | dr         76 |ar:       2000 | acc:         59
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1116 | ip:         68 | dr         68 |ar:       2000 | acc:         59
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1121 | ip:         69 | dr        101 |ar:         59 | acc:        101
+  DEBUG   data_path:output        What is your name? H <- e
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1125 | ip:         70 | dr        101 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1129 | ip:         71 | dr          0 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1133 | ip:         72 | dr         76 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1135 | ip:         73 | dr         76 |ar:       2000 | acc:         59
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1137 | ip:         74 | dr         76 |ar:       2000 | acc:         60
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1139 | ip:         75 | dr         76 |ar:       2000 | acc:         60
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1143 | ip:         68 | dr         68 |ar:       2000 | acc:         60
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1148 | ip:         69 | dr        108 |ar:         60 | acc:        108
+  DEBUG   data_path:output        What is your name? He <- l
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1152 | ip:         70 | dr        108 |ar:       2000 | acc:        108
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1156 | ip:         71 | dr          0 |ar:       2000 | acc:        108
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1160 | ip:         72 | dr         76 |ar:       2000 | acc:        108
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1162 | ip:         73 | dr         76 |ar:       2000 | acc:         60
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1164 | ip:         74 | dr         76 |ar:       2000 | acc:         61
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1166 | ip:         75 | dr         76 |ar:       2000 | acc:         61
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1170 | ip:         68 | dr         68 |ar:       2000 | acc:         61
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1175 | ip:         69 | dr        108 |ar:         61 | acc:        108
+  DEBUG   data_path:output        What is your name? Hel <- l
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1179 | ip:         70 | dr        108 |ar:       2000 | acc:        108
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1183 | ip:         71 | dr          0 |ar:       2000 | acc:        108
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1187 | ip:         72 | dr         76 |ar:       2000 | acc:        108
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1189 | ip:         73 | dr         76 |ar:       2000 | acc:         61
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1191 | ip:         74 | dr         76 |ar:       2000 | acc:         62
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1193 | ip:         75 | dr         76 |ar:       2000 | acc:         62
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1197 | ip:         68 | dr         68 |ar:       2000 | acc:         62
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1202 | ip:         69 | dr        111 |ar:         62 | acc:        111
+  DEBUG   data_path:output        What is your name? Hell <- o
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1206 | ip:         70 | dr        111 |ar:       2000 | acc:        111
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1210 | ip:         71 | dr          0 |ar:       2000 | acc:        111
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1214 | ip:         72 | dr         76 |ar:       2000 | acc:        111
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1216 | ip:         73 | dr         76 |ar:       2000 | acc:         62
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1218 | ip:         74 | dr         76 |ar:       2000 | acc:         63
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1220 | ip:         75 | dr         76 |ar:       2000 | acc:         63
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1224 | ip:         68 | dr         68 |ar:       2000 | acc:         63
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1229 | ip:         69 | dr         44 |ar:         63 | acc:         44
+  DEBUG   data_path:output        What is your name? Hello <- ,
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1233 | ip:         70 | dr         44 |ar:       2000 | acc:         44
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1237 | ip:         71 | dr          0 |ar:       2000 | acc:         44
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1241 | ip:         72 | dr         76 |ar:       2000 | acc:         44
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1243 | ip:         73 | dr         76 |ar:       2000 | acc:         63
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1245 | ip:         74 | dr         76 |ar:       2000 | acc:         64
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1247 | ip:         75 | dr         76 |ar:       2000 | acc:         64
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1251 | ip:         68 | dr         68 |ar:       2000 | acc:         64
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1256 | ip:         69 | dr         32 |ar:         64 | acc:         32
+  DEBUG   data_path:output        What is your name? Hello, <- ' '
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1260 | ip:         70 | dr         32 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1264 | ip:         71 | dr          0 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1268 | ip:         72 | dr         76 |ar:       2000 | acc:         32
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1270 | ip:         73 | dr         76 |ar:       2000 | acc:         64
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1272 | ip:         74 | dr         76 |ar:       2000 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1274 | ip:         75 | dr         76 |ar:       2000 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1278 | ip:         68 | dr         68 |ar:       2000 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1283 | ip:         69 | dr          0 |ar:         65 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1287 | ip:         70 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1291 | ip:         71 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1295 | ip:         76 | dr         76 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1299 | ip:         77 | dr       2011 |ar:       2000 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1301 | ip:         78 | dr       2011 |ar:       2000 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1306 | ip:         79 | dr         65 |ar:       2011 | acc:         65
+  DEBUG   data_path:output        What is your name? Hello,  <- A
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1310 | ip:         80 | dr         65 |ar:       2000 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1314 | ip:         81 | dr          0 |ar:       2000 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1318 | ip:         82 | dr         86 |ar:       2000 | acc:         65
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1320 | ip:         83 | dr         86 |ar:       2000 | acc:       2011
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1322 | ip:         84 | dr         86 |ar:       2000 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1324 | ip:         85 | dr         86 |ar:       2000 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1328 | ip:         78 | dr         78 |ar:       2000 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1333 | ip:         79 | dr        114 |ar:       2012 | acc:        114
+  DEBUG   data_path:output        What is your name? Hello, A <- r
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1337 | ip:         80 | dr        114 |ar:       2000 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1341 | ip:         81 | dr          0 |ar:       2000 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1345 | ip:         82 | dr         86 |ar:       2000 | acc:        114
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1347 | ip:         83 | dr         86 |ar:       2000 | acc:       2012
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1349 | ip:         84 | dr         86 |ar:       2000 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1351 | ip:         85 | dr         86 |ar:       2000 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1355 | ip:         78 | dr         78 |ar:       2000 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1360 | ip:         79 | dr        116 |ar:       2013 | acc:        116
+  DEBUG   data_path:output        What is your name? Hello, Ar <- t
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1364 | ip:         80 | dr        116 |ar:       2000 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1368 | ip:         81 | dr          0 |ar:       2000 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1372 | ip:         82 | dr         86 |ar:       2000 | acc:        116
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1374 | ip:         83 | dr         86 |ar:       2000 | acc:       2013
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1376 | ip:         84 | dr         86 |ar:       2000 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1378 | ip:         85 | dr         86 |ar:       2000 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1382 | ip:         78 | dr         78 |ar:       2000 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1387 | ip:         79 | dr        101 |ar:       2014 | acc:        101
+  DEBUG   data_path:output        What is your name? Hello, Art <- e
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1391 | ip:         80 | dr        101 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1395 | ip:         81 | dr          0 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1399 | ip:         82 | dr         86 |ar:       2000 | acc:        101
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1401 | ip:         83 | dr         86 |ar:       2000 | acc:       2014
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1403 | ip:         84 | dr         86 |ar:       2000 | acc:       2015
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1405 | ip:         85 | dr         86 |ar:       2000 | acc:       2015
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1409 | ip:         78 | dr         78 |ar:       2000 | acc:       2015
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1414 | ip:         79 | dr        109 |ar:       2015 | acc:        109
+  DEBUG   data_path:output        What is your name? Hello, Arte <- m
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1418 | ip:         80 | dr        109 |ar:       2000 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1422 | ip:         81 | dr          0 |ar:       2000 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1426 | ip:         82 | dr         86 |ar:       2000 | acc:        109
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1428 | ip:         83 | dr         86 |ar:       2000 | acc:       2015
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1430 | ip:         84 | dr         86 |ar:       2000 | acc:       2016
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1432 | ip:         85 | dr         86 |ar:       2000 | acc:       2016
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1436 | ip:         78 | dr         78 |ar:       2000 | acc:       2016
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1441 | ip:         79 | dr          0 |ar:       2016 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1445 | ip:         80 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1449 | ip:         81 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1453 | ip:         86 | dr         86 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1455 | ip:         87 | dr         86 |ar:       2000 | acc:       2016
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1459 | ip:         90 | dr         90 |ar:       2000 | acc:       2016
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1463 | ip:         91 | dr         88 |ar:       2000 | acc:         88
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1465 | ip:         92 | dr         88 |ar:       2000 | acc:         88
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1470 | ip:         93 | dr         33 |ar:         88 | acc:         33
+  DEBUG   data_path:output        What is your name? Hello, Artem <- !
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1474 | ip:         94 | dr         33 |ar:       2000 | acc:         33
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1478 | ip:         95 | dr          0 |ar:       2000 | acc:         33
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1482 | ip:         96 | dr        100 |ar:       2000 | acc:         33
+  DEBUG   control_unit:process_tick  execute_command      Opcode.POP | tick:       1484 | ip:         97 | dr        100 |ar:       2000 | acc:         88
+  DEBUG   control_unit:process_tick  execute_command      Opcode.INC | tick:       1486 | ip:         98 | dr        100 |ar:       2000 | acc:         89
+  DEBUG   control_unit:process_tick  execute_command     Opcode.PUSH | tick:       1488 | ip:         99 | dr        100 |ar:       2000 | acc:         89
+  DEBUG   control_unit:process_tick  execute_command     Opcode.JUMP | tick:       1492 | ip:         92 | dr         92 |ar:       2000 | acc:         89
+  DEBUG   control_unit:process_tick  execute_command       Opcode.LD | tick:       1497 | ip:         93 | dr          0 |ar:         89 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.ST | tick:       1501 | ip:         94 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command      Opcode.CMP | tick:       1505 | ip:         95 | dr          0 |ar:       2000 | acc:          0
+  DEBUG   control_unit:process_tick  execute_command       Opcode.JE | tick:       1509 | ip:        100 | dr        100 |ar:       2000 | acc:          0
+  DEBUG   data_path:output_the_buffer output: What is your name? Hello, Artem!
+  INFO    processor:simulation    Simulation stop
