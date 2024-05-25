@@ -1,0 +1,316 @@
+#include <iostream>
+#include <climits>
+
+
+#ifdef MY_TEST
+  #include <cstdlib>
+  #include <iomanip>
+  
+  #define BUF_SIZE 102400
+  
+  #define MY_DEBUG 1
+#endif
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Basic definitions
+
+// Minimum actual size of a block
+#define MIN_BLOCK_SIZE 16
+
+// function to move to the next header (see, getNext() and getPrevious())
+typedef struct header* (*HeaderIterator)(struct header*);
+
+// start marker of the block
+struct header {
+  unsigned char free; // block is free to allocate
+  std::size_t actualSize; // size to use. without header and tail
+};
+
+// end marker of the block
+struct tail {
+  unsigned char free; // block is free to allocate
+  std::size_t actualSize; // size to use. without header and tail
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Globals variables
+struct header* _startHeader; // the first header
+struct tail* _endTail; // the end tail
+std::size_t _size; // size of the entire block
+std::size_t minSize; // minimum block size
+
+//////////////////////////////////////////////////////////////////////////////
+// Function
+
+// Mark initial bufer with header and tail
+struct header* initBlock(void *buf, std::size_t size) {
+  #ifdef MY_DEBUG
+    std::cout << "initBlock(" << buf << ", " << size << ')' << std::endl;
+  #endif
+  
+  struct header* ph = (struct header*)buf;
+  ph->free = 1;
+  ph->actualSize = size - sizeof(struct header) - sizeof(struct tail);
+  #ifdef MY_DEBUG
+    std::cout << "   ph addr =" << ph << "; free =" << (int)(ph->free) << "; actualSize = " << ph->actualSize << std::endl;
+  #endif
+  
+  struct tail* pt = (struct tail*)((unsigned char*)buf + size - sizeof(struct tail));
+  pt->free = 1;
+  pt->actualSize = ph->actualSize;
+  #ifdef MY_DEBUG
+    std::cout << "   pt addr =" << pt << "; free =" << (int)(pt->free) << "; actualSize = " << pt->actualSize << std::endl;
+  #endif
+  
+  return ph;
+}
+
+// get tail corresponds to the header
+struct tail* getTail(struct header* phead) {
+  unsigned char* base = (unsigned char*)phead;
+  base += sizeof(struct header) + phead->actualSize;
+  return (struct tail*)base;
+}
+
+// get header corresponds to the tail
+struct header* getHeader(struct tail* ptail) {
+  unsigned char* base = (unsigned char*)ptail;
+  base -= sizeof(struct header) + ptail->actualSize;
+  return (struct header*)base;
+}
+
+// return pointer to the next block.
+// if the current block is the very last, then return NULL
+struct header* getNext(struct header* phead) {
+  #ifdef MY_DEBUG
+    std::cout << "getNext(" << phead << ')' << std::endl;
+  #endif
+  
+  struct tail* ptail = getTail(phead);
+  if(ptail == _endTail)
+    return NULL;
+  
+  unsigned char* base = (unsigned char*)ptail;
+  base += sizeof(struct tail);
+  return (struct header*)base;
+}
+
+// return pointer to the previous block.
+// if the current block is the very first, then return NULL
+struct header* getPrevious(struct header* phead) {
+  #ifdef MY_DEBUG
+    std::cout << "getPrevious(" << phead << ')' << std::endl;
+  #endif
+  
+  if(phead == _startHeader)
+    return NULL;
+  
+  unsigned char* base = (unsigned char*)phead;
+  base -= sizeof(struct tail);
+  return getHeader((struct tail*)base);
+}
+
+// return size nedeed to allocate block with header and tail
+std::size_t getAllSize(std::size_t size) {
+  return size + sizeof(struct header) + sizeof(struct tail);
+}
+
+// return actual size of the block between header and tail.
+std::size_t getActualSize(struct header* ph, struct tail* pt) {
+  if((unsigned char*)ph >= (unsigned char*)pt)
+    return 0;
+  return (unsigned char*)pt - (unsigned char*)ph - sizeof(struct header);
+}
+
+// set phStart header and phEnd tail actualSize
+//  == (phStart->actualSize + phEnd->actualSize).
+// So phStart and ptEnd make new big block.
+// Do not check any limits.
+void joinBlocks(struct header* phStart, struct header* phEnd) {
+  if(phStart == phEnd)
+    return;
+  
+  #ifdef MY_DEBUG
+    std::cout << "joinBlocks(" << phStart << ", " << phEnd << ')' << std::endl;
+  #endif
+  
+  if(phStart > phEnd) {
+    
+    // phStart has to precede to phEnd
+    struct header* tmp = phStart;
+    phStart = phEnd;
+    phEnd = tmp;
+    #ifdef MY_DEBUG
+      std::cout << "  swap block. phtStart " << phStart << "; phEnd " << phEnd << std::endl;
+    #endif
+  }
+  
+  struct tail* ptEnd = getTail(phEnd);
+  #ifdef MY_DEBUG
+    std::cout << "   ptEnd = " << ptEnd << std::endl;
+  #endif
+  
+  phStart->actualSize = getActualSize(phStart, ptEnd);
+  ptEnd->actualSize = phStart->actualSize;
+  #ifdef MY_DEBUG
+    std::cout << "   actualSize = " << phStart->actualSize << std::endl;
+  #endif
+}
+
+// Split free block on two parts. First block is free.
+// Second is used with size (size).
+// Return pointer to the header of second block.
+// If there was an error or size of old block too small,
+// or the old block is not free return NULL.
+struct header* utilizeBlock(struct header* ph, std::size_t size) {
+  if(!ph->free || ph->actualSize < size)
+    return NULL;
+  
+  #ifdef MY_DEBUG
+    std::cout << "utilizeBlock(" << ph << ", " << size << ")" << std::endl;
+  #endif
+  
+  // size with header and tail
+  std::size_t allSize = getAllSize(size);
+  
+  struct tail* ptEnd = getTail(ph);
+  
+  if(ph->actualSize <= allSize) {
+    ph->free = 0;
+    ptEnd->free = 0;
+    return ph;
+  }
+  
+  std::size_t newSize = ph->actualSize - allSize;
+  
+  if(newSize < MIN_BLOCK_SIZE) {
+    // it does not make sens to divide the block
+    ph->free = 0;
+    ptEnd->free = 0;
+    return ph;
+  }
+  
+  // split block on two: Start and End.
+  // Because of adjusting, we may take anoter size of the blocks.
+  // Compute it.
+  unsigned char* base = (unsigned char*)ptEnd;
+  base -= allSize;
+  
+  // tail of the start block
+  struct tail* ptStart = (struct tail*)base;
+  ptStart->free = 1;
+  // find new size of the Start block in memory with adjusting
+  ptStart->actualSize = getActualSize(ph, ptStart);
+  ph->actualSize = ptStart->actualSize;
+  
+  // Create header of the second block next the tail of the first block
+  struct header* phEnd = (struct header*)(base + sizeof(struct tail));
+  phEnd->free = 0;
+  phEnd->actualSize = getActualSize(phEnd, ptEnd);
+  
+  // The end of the start block became end of the end block
+  ptEnd->free = 0;
+  ptEnd->actualSize = phEnd->actualSize;
+  
+  return phEnd;
+}
+
+// Find all consequent free blocks and join it.
+// ph - start block header.
+// iterator - function to get next block.
+// Return pointer to the header of new start block.
+struct header* joinNearestFreeBlocks(struct header* ph, HeaderIterator iterator) {
+  if(ph == NULL || !ph->free)
+    return ph;
+  
+  #ifdef MY_DEBUG
+    std::cout << "joinNearestFreeBlocks(" << ph << ')' << std::endl;
+  #endif
+  
+  struct header* next = iterator(ph);
+  #ifdef MY_DEBUG
+    std::cout << "   next header = " << next << (next == NULL ? '=': '!') << "= NULL";
+  #endif
+  
+  while(next != NULL && next->free) {
+    #ifdef MY_DEBUG
+      std::cout << "; free = " << (unsigned)(next->free) << std::endl;
+    #endif
+    joinBlocks(ph, next); // it does not need to ph precede next
+    ph = next;
+    next = iterator(ph);
+    #ifdef MY_DEBUG
+      std::cout << "   next header = " << next << (next == NULL ? '=': '!') << "= NULL";
+    #endif
+  }
+  #ifdef MY_DEBUG
+    std::cout << std::endl;
+  #endif
+  
+  return ph;
+}
+
+    // Эта функция будет вызвана перед тем как вызывать myalloc и myfree
+    // используйте ее чтобы инициализировать ваш аллокатор перед началом
+    // работы.
+    //
+    // buf - указатель на участок логической памяти, который ваш аллокатор
+    //       должен распределять, все возвращаемые указатели должны быть
+    //       либо равны NULL, либо быть из этого участка памяти
+    // size - размер участка памяти, на который указывает buf
+    void mysetup(void *buf, std::size_t size) {
+    _size = size;
+    _startHeader = initBlock(buf, size);
+    _endTail = getTail(_startHeader);
+    // minimum size of the block
+    minSize = getAllSize(MIN_BLOCK_SIZE);
+  }
+
+    // Функция аллокации
+    void *myalloc(std::size_t size) {
+    // look up for free block with apropriate size
+    std::size_t allSize = getAllSize(size);
+    struct header* ph = _startHeader;
+    while(ph != NULL) {
+      if(ph->free && (ph->actualSize >= allSize || ph->actualSize >= size)) {
+        // we find free block with needed size
+        unsigned char *base = (unsigned char*)utilizeBlock(ph, size);
+        base += sizeof(struct header);
+        return (void*)base;
+      }
+      ph = getNext(ph);
+    }
+    // there is not any free block with needed size
+    return NULL;
+  }
+
+    // Функция освобождения
+    void myfree(void *p) {
+    #ifdef MY_DEBUG
+      std::cout << "myfree(" << p << ')' << std::endl;
+    #endif
+    
+    if(p == NULL)
+      return;
+    
+    struct header* ph = (struct header*)((unsigned char*)p - sizeof(struct header));
+    ph->free = 1;
+    
+    #ifdef MY_DEBUG
+      std::cout << "   ph addr =" << ph << "; free =" << (unsigned int)(ph->free) << "; actualSize = " << ph->actualSize << std::endl;
+    #endif
+  
+    struct tail* pt = getTail(ph);
+    pt->free = 1;
+    
+    #ifdef MY_DEBUG
+      std::cout << "   pt addr =" << pt << "; free =" << (unsigned int)(pt->free) << "; actualSize = " << pt->actualSize << std::endl;
+    #endif
+  
+    // join blocks prevous to the current
+    ph = joinNearestFreeBlocks(ph, getPrevious);
+    // join blocks next to the current
+    joinNearestFreeBlocks(ph, getNext);
+  }
