@@ -15,7 +15,7 @@ X = data['body']
 y = data['class']
 
 # Разделение на тренировочный и тестовый наборы данных
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=90)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=94)
 
 # Использование TfidfVectorizer() на столбце body
 tfidf_vect = TfidfVectorizer()
@@ -23,7 +23,7 @@ X_train_tfidf = tfidf_vect.fit_transform(X_train)
 X_test_tfidf = tfidf_vect.transform(X_test)
 
 # Обучение и оценка RandomForestClassifier с TfidfVectorizer на столбце body
-rf_classifier = RandomForestClassifier(n_estimators=5, n_jobs=10, random_state=90)
+rf_classifier = RandomForestClassifier(n_estimators=8, n_jobs=10, random_state=94)
 rf_classifier.fit(X_train_tfidf, y_train)
 y_pred = rf_classifier.predict(X_test_tfidf)
 
@@ -49,7 +49,7 @@ X = data['subject'] + ' ' + data['body'] + ' ' + data['date'].astype(str)
 y = data['class']
 
 # Разделение на тренировочный и тестовый наборы данных
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=90)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=94)
 
 # Использование TfidfVectorizer() на объединенных столбцах subject и body с добавленным столбцом weekday
 tfidf_vect = TfidfVectorizer()
@@ -57,7 +57,7 @@ X_train_tfidf = tfidf_vect.fit_transform(X_train)
 X_test_tfidf = tfidf_vect.transform(X_test)
 
 # Обучение и оценка RandomForestClassifier с TfidfVectorizer на объединенных данных
-rf_classifier = RandomForestClassifier(n_estimators=5, n_jobs=10, random_state=90)
+rf_classifier = RandomForestClassifier(n_estimators=8, n_jobs=10, random_state=94)
 rf_classifier.fit(X_train_tfidf, y_train)
 y_pred = rf_classifier.predict(X_test_tfidf)
 
@@ -72,20 +72,20 @@ print("F-score (macro avg):", f1_2)
 
 X = data['body']
 y = data['class']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=90)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=94)
 
-tfidf_vect = TfidfVectorizer(ngram_range=(2, 2))
+tfidf_vect = TfidfVectorizer(ngram_range=(2, 3))
 X_train_tfidf = tfidf_vect.fit_transform(X_train)
 X_test_tfidf = tfidf_vect.transform(X_test)
 
-rf_classifier = RandomForestClassifier(n_estimators=5, n_jobs=10, random_state=90)
+rf_classifier = RandomForestClassifier(n_estimators=8, n_jobs=10, random_state=94)
 rf_classifier.fit(X_train_tfidf, y_train)
 y_pred = rf_classifier.predict(X_test_tfidf)
 
 precision_3 = precision_score(y_test, y_pred, average='macro')
 recall_3 = recall_score(y_test, y_pred, average='macro')
 f1_3 = f1_score(y_test, y_pred, average='macro')
-print("\nИспользование TfidfVectorizer() на колонке body с параметром ngram_range = (2, 2):")
+print("\nИспользование TfidfVectorizer() на колонке body с параметром ngram_range = (2, 3):")
 print("Precision (macro avg):", round(precision_3,3))
 print("Recall (macro avg):", round(recall_3,3))
 print("F-score (macro avg):", round(f1_3,3))
