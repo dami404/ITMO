@@ -1,0 +1,1 @@
+Affine cipher is a type of monoalphabetic substitution cipher.
