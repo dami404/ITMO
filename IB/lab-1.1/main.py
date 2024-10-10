@@ -1,6 +1,8 @@
 from collections import Counter
 from math import gcd
 
+# Афинский шифр
+
 # Функция для нахождения обратного числа по модулю m
 def mod_inverse(a, m):
     for i in range(m):
