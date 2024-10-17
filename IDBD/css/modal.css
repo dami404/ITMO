@@ -1,0 +1,16 @@
+#form {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    border-radius: 5%;
+    background-color: #F1F4FF;
+}
+
+.element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
