@@ -1,0 +1,3 @@
+[submodule "IDBD"]
+	path = IDBD
+	url = https://github.com/artem00475/IDBD.git

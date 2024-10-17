@@ -2,4 +2,6 @@
 data/
 .vscode
 venv
-./CC/*
+.metadata
+Drivers
+Debug
