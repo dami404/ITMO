@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.8'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+jar {
+    manifest {
+        attributes "Main-Class": "main.Main"
+    }
+}
+
+task copyAllJarsToBuild() {
+    doLast {
+        copy {
+            from 'client/build/libs/client.jar'
+            into "build/libs"
+        }
+        copy {
+            from 'server/build/libs/server.jar'
+            into "build/libs"
+        }
+    }
+}

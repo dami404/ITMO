@@ -1,0 +1,72 @@
+
+
+plugins {
+    id 'application'
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+//apply plugin : 'com.github.johnrengelman.shadow'
+//mainClassName = 'main.App'
+application {
+    mainClass = 'main.Main'
+    mainClassName = 'main.Main'
+}
+
+javafx {
+    version = "14.0.2"
+    modules = ['javafx.controls', 'javafx.fxml',"javafx.base",  "javafx.graphics"]
+    //mainClass 'main.App'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+
+dependencies {
+
+
+    implementation 'org.codehaus.groovy:groovy-all:3.0.5'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'com.github.jhsheets:javafx-filterable-table-columns:1.0.1'
+    implementation 'com.github.maimart:TableFilterFX:1.0.0'
+    //implementation group: 'com.panemu', name: 'tiwulfx', version: '2.0'
+
+    //implementation group: 'org.controlsfx', name: 'controlsfx', version: '8.40.18'
+    implementation project(':common')
+    /*/
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation project(':common')*/
+}
+
+
+test {
+    useJUnitPlatform()
+}
+
+run {
+    standardInput = System.in
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "main.Main"
+    }
+    /*from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }*/
+}
+shadowJar {
+    archiveBaseName.set('client')
+    archiveClassifier.set('')
+    archiveVersion.set('')
+}

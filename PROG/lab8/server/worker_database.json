@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "name": "John",
+    "coordinates": {
+      "x": 20.0,
+      "y": 30
+    },
+    "creationDate": "2022-01-28",
+    "salary": 30000,
+    "endDate": "2023-01-01",
+    "position": "BAKER",
+    "status": "REGULAR",
+    "organization": {
+      "fullName": "XXXSTUDIO",
+      "type": "PUBLIC"
+    }
+  },
+  {
+    "id": 1,
+    "name": "Sanya",
+    "coordinates": {
+      "x": 20.0,
+      "y": 30
+    },
+    "creationDate": "2022-01-28",
+    "salary": 30000,
+    "endDate": "2023-01-05",
+    "position": "BAKER",
+    "status": "REGULAR",
+    "organization": {
+      "fullName": "XXXSTUDIO",
+      "type": "PUBLIC"
+    }
+  },
+  {
+    "name": "ABOBA",
+    "coordinates": {
+      "x": 1000.0,
+      "y": 100000
+    }
+  },
+  {
+    "id": 6,
+    "name": "ABOBA",
+    "coordinates": {
+      "x": 1000.0,
+      "y": 100000
+    },
+    "creationDate": "2022-02-02",
+    "salary": 10,
+    "status": "PROBATION",
+    "organization": {
+      "type": "GOVERNMENT"
+    }
+  },
+  {
+    "id": 5,
+    "name": "ABOBA3",
+    "coordinates": {
+      "x": "6",
+      "y": 2
+    },
+    "creationDate": "2022-02-04",
+    "salary": 3,
+    "position": "BAKER",
+    "status": "PROBATION",
+    "organization": {
+      "fullName": "YYY",
+      "type": "PUBLIC"
+    }
+  }
+]

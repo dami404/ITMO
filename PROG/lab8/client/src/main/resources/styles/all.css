@@ -1,0 +1,14 @@
+
+.table-view {-fx-focus-color: transparent;
+-fx-faint-focus-color: transparent;}
+
+.tab-pane>*.tab-header-area>*.tab-header-background {
+    -fx-background-insets:0;
+}
+.tab-header-background {
+    -fx-background-color:transparent
+}
+
+.tab-pane{
+    -fx-padding: 0 -1 -1 0
+}

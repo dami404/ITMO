@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+
+    <CustomLevels>
+        <CustomLevel name="CONSOLE_ERROR" intLevel="150" />
+        <CustomLevel name="CONSOLE_INFO" intLevel="50" />
+    </CustomLevels>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{HH:mm:ss.SSS} %-5level] %msg%n" charset="UTF-8"/>
+        </Console>
+        <File name="File1" fileName="logs/errors.log">
+            <PatternLayout pattern="[%d{HH:mm:ss.SSS} %-5level] %msg%n" charset="UTF-8"/>
+        </File>
+        <File name="File" fileName="logs/application.log">
+            <PatternLayout pattern="[%d{HH:mm:ss.SSS} %-5level] %msg%n" charset="UTF-8"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="all">
+            <AppenderRef ref="Console" level="TRACE"/>
+            <AppenderRef ref="File" level="TRACE"/>
+            <AppenderRef ref="File1" level="ERROR"/>
+        </Root>
+    </Loggers>
+</Configuration>
