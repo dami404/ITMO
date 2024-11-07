@@ -1,0 +1,68 @@
+Configuration	lab1
+STM32CubeMX 	6.5.0
+Date	10/25/2024
+MCU	STM32F427VITx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+SYS	JTAG (5 pins)	SYS_JTCK-SWCLK	PA14
+SYS	JTAG (5 pins)	SYS_JTDI	PA15
+SYS	JTAG (5 pins)	SYS_JTDO-SWO	PB3
+SYS	JTAG (5 pins)	SYS_JTMS-SWDIO	PA13
+SYS	JTAG (5 pins)	SYS_JTRST	PB4
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+62	PD15	GPIO_Output	
+72	PA13	SYS_JTMS-SWDIO	
+76	PA14	SYS_JTCK-SWCLK	
+77	PA15	SYS_JTDI	
+89	PB3	SYS_JTDO-SWO	
+90	PB4	SYS_JTRST	
+PERIPHERALS	MODES	FUNCTIONS	PINS
+SYS	JTAG (5 pins)	SYS_JTCK-SWCLK	PA14
+SYS	JTAG (5 pins)	SYS_JTDI	PA15
+SYS	JTAG (5 pins)	SYS_JTDO-SWO	PB3
+SYS	JTAG (5 pins)	SYS_JTMS-SWDIO	PA13
+SYS	JTAG (5 pins)	SYS_JTRST	PB4
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+62	PD15	GPIO_Output	
+72	PA13	SYS_JTMS-SWDIO	
+76	PA14	SYS_JTCK-SWCLK	
+77	PA15	SYS_JTDI	
+89	PB3	SYS_JTDO-SWO	
+90	PB4	SYS_JTRST	
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : lab1
+Project Folder : /Users/dami/STM32CubeIDE/workspace_1.9.0/lab1
+Toolchain / IDE : STM32CubeIDE
+Firmware Package Name and Version : STM32Cube FW_F4 V1.27.0
+
+
+Code Generation Settings : 
+STM32Cube MCU packages and embedded software packs : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : Yes
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : 
+
+
+
+
+

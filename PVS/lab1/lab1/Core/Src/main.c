@@ -85,13 +85,66 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  uint32_t duration = 1000;
+  uint32_t blinkDuration = 500;
+  uint32_t durationForGreen = duration;
+  uint32_t durationForRed = 4 * duration;
+  uint32_t durationForYellow = 2000;
+  uint8_t buttonFlag = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+  while (1){
+	  turnSpecificLightOn(RED);
+	  buttonFlag = wait(duration, 0);
+	  if (buttonFlag == 0 && duration < durationForRed) {
+		  buttonFlag = wait(durationForRed - duration , 1);
+	  }
+
+	  if (buttonFlag == 1) {
+		  durationForRed = duration;
+		  durationForGreen = duration * 4;
+		  buttonFlag = 0;
+	  }
+
+	  turnSpecificLightOn(GREEN);
+	  wait(durationForGreen, 0);
+
+	  durationForRed = 4 * duration;
+	  durationForGreen = duration;
+
+	  for(uint32_t i = 0; i < 3; i++){
+			turnAllOff();
+			buttonFlag = wait(blinkDuration, 0);
+			turnSpecificLightOn(GREEN);
+			buttonFlag = wait(blinkDuration, 0) | buttonFlag;
+			if (buttonFlag == 1) {
+				durationForRed = duration;
+				durationForGreen = duration * 4;
+				buttonFlag = 0;
+		    }
+	  }
+
+	  turnSpecificLightOn(YELLOW);
+	  buttonFlag = wait(durationForYellow, 0);
+	  if (buttonFlag == 1) {
+		  durationForRed = duration;
+		  durationForGreen = duration * 4;
+		  buttonFlag = 0;
+	  }
+
+//	  durationForRed = 4 * duration;
+//	  buttonFlag = 0;
+//	  turnSpecificLightOn(YELLOW);
+//	  startTime = HAL_GetTick();
+//	  while((HAL_GetTick() - startTime) < durationForYellow){
+//		  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_15) == 0 && buttonFlag == 0) {
+//			//  durationForRed = durationForRed / 4;
+//			  buttonFlag = 1;
+//		  }
+//	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -112,7 +165,6 @@ void SystemClock_Config(void)
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
-
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
@@ -124,7 +176,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
@@ -175,3 +226,4 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+

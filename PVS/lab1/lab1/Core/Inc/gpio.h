@@ -39,6 +39,17 @@ extern "C" {
 void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
+uint8_t wait(uint32_t, uint8_t);
+uint8_t isButtonPressed();
+void turnAllOff();
+void turnSpecificLightOn(uint16_t);
+
+typedef enum {
+  GREEN = 0,
+  YELLOW,
+  RED
+}LightColors;
+
 
 /* USER CODE END Prototypes */
 
