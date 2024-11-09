@@ -1,0 +1,570 @@
+openapi: 3.0.3
+info:
+  title: D&D dragons service
+  version: 1.0.0
+servers:
+  - url: https://localhost:1234/api/v1
+tags:
+  - name: Dragons
+    description: Everything about your Dragons
+paths:
+  /dragons/array:
+    post:
+      tags:
+        - Dragons
+      summary: Finds dragons by filters
+      description: |
+        Multiple filters can be provided in URI to get array of dragons
+        
+        For sorting you can pass an array of fields that are used for sorting. The "-" sign means sorting in descending order. 
+        
+        Availible sorting fields is "id", "name", "creationDate", "coordinates.x", "coordinates.y", "age", "color", "type", "character", "killer.name", "killer.weight", "killer.eyeColor" and "killer.nationality"
+        
+        For filtering you can pass an array of fields used for filtering. Each element must contain the field name, comparison sign and comparison value that will be used for filtering. 
+        
+        Availible fields same like for sorting. Availible comparison sings is =, !=, <>, >, <, >=, <=
+        
+        Also this method use pagination. You can specify the page number to be paginated and page size. 
+        * If "page" used without the "pageSize" parameter, the default page size will be 10. 
+        * If "pageSize" used without the "page" parameter, the first page will be displayed. 
+        * If none of the parameters "page" or "pageSize" is used, then first page with default "pageSize" will be returned.
+      operationId: findDragons
+      requestBody:
+        description: Find array of dragons with given filters and sorting options
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SortAndFilterOptions'
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DragonsArray'
+        '400':
+          description: Some of given query params are invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+  /dragons:
+    post:
+      tags:
+        - Dragons
+      summary: Add a new dragon
+      description: Add a new dragon
+      operationId: addDragon
+      requestBody:
+        description: Create a new dragon
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DragonRequest'
+        required: true
+      responses:
+        '201':
+          description: Successful operation, dragon created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dragon'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '422':
+          description: Validation exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error422'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+
+  /dragons/younger/{age}:
+    get:
+      tags:
+          - Dragons
+      summary: Return an array of objects whose age field value is less than the specified value.
+      description: Return an array of objects whose age field value is less than the specified value.
+      operationId: getYoungerThan
+      parameters:
+        - name: age
+          in: path
+          description: Dragon age
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Dragon'
+        '400':
+          description: Invalid age supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+
+  /dragons/{dragonId}:
+    get:
+      tags:
+        - Dragons
+      summary: Finds dragon by ID
+      description: Finds dragon by ID
+      operationId: findDragonById
+      parameters:
+        - name: dragonId
+          in: path
+          description: ID of dragon
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dragon'
+        '400':
+          description: Invalid ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '404':
+          description: Dragon not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+
+    put:
+      tags:
+        - Dragons
+      summary: Update an existing dragon
+      description: Update an existing dragon by Id
+      operationId: updateDragon
+      parameters:
+        - name: dragonId
+          in: path
+          description: ID of dragon to update
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Update an existent dragon
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DragonRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation, updated dragon information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dragon'
+        '400':
+          description: Invalid ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '404':
+          description: Dragon not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+        '422':
+          description: Validation exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error422'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+    delete:
+      tags:
+        - Dragons
+      summary: Delete dragon by ID
+      description: Delete dragon by ID
+      operationId: deleteDragonById
+      parameters:
+        - name: dragonId
+          in: path
+          description: ID of dragon to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid ID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '404':
+          description: Dragon not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+                
+  /dragons/all/type/{type}:
+    delete:
+      tags:
+          - Dragons
+      summary: Delete all objects whose type field value is equivalent to the specified one.
+      description: Delete all objects whose type field value is equivalent to the specified one.
+      operationId: deleteAllByType
+      parameters:
+        - name: type
+          in: path
+          description: Type of dragon to delete
+          required: true
+          schema:
+            $ref: '#/components/schemas/DragonType'
+      
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid type supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '404':
+          description: Dragon type not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+                
+  /dragons/one/killer/{killer}:
+    delete:
+      tags:
+          - Dragons
+      summary: Delete one (any) object, the killer field value is equivalent to the given one
+      description: Delete one (any) object, the killer field value is equivalent to the given one
+      operationId: deleteAnyByKiller
+      parameters:
+        - name: killer
+          in: path
+          description: Person who killed dragon
+          required: true
+          schema:
+            $ref: '#/components/schemas/Person'
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid killer supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '404':
+          description: Killer not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+
+
+components:
+  schemas:
+    DragonRequest:
+      required:
+        - name
+        - photoUrls
+
+      type: object
+      properties:
+        name:
+          type: string
+          example: 'Чёрный Ужас'
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+        age:
+          type: integer
+          format: int64
+          example: 350
+          description: "Age of dragon"
+        color:
+          $ref: '#/components/schemas/Color'
+        type:
+          $ref: '#/components/schemas/DragonType'
+        character:
+          $ref: '#/components/schemas/DragonCharacter'
+        killer:
+          $ref: '#/components/schemas/Person'
+
+    Dragon:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 3
+        name:
+          type: string
+          example: 'Чёрный Ужас'
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+        creationDate:
+          type: string
+          format: date-time
+        age:
+          type: integer
+          format: int64
+          example: 350
+        color:
+          $ref: '#/components/schemas/Color'
+        type:
+          $ref: '#/components/schemas/DragonType'
+        character:
+          $ref: '#/components/schemas/DragonCharacter'
+        killer:
+          $ref: '#/components/schemas/Person'
+
+    Person:
+      type: object
+      properties:
+        name:
+          type: string
+          example: 'John Snow'
+        weight:
+          type: integer
+          format: int64
+          example: 80
+        eyeColor:
+          $ref: '#/components/schemas/Color'
+        nationality:
+          $ref: '#/components/schemas/Country'
+    
+    Coordinates:
+      type: object
+      properties:
+        x:
+          type: number
+          minimum: -438
+          example: 10.5
+        y:
+          type: number
+          example: -1.2
+    
+    Color:
+      type: string
+      enum:
+        - GREEN
+        - BLUE
+        - WHITE
+        - BROWN
+      nullable: false
+      example: GREEN
+
+    DragonType:
+      type: string
+      enum:
+        - WATER
+        - UNDERGROUND
+        - FIRE
+      nullable: false
+      example: FIRE
+
+    DragonCharacter:
+      type: string
+      enum:
+        - CUNNING
+        - EVIL
+        - CHAOTIC
+        - CHAOTIC_EVIL
+        - FICKLE
+      nullable: true
+      example: EVIL
+
+    Country:
+      type: string
+      enum:
+        - RUSSIA
+        - INDIA
+        - ITALY
+      nullable: false
+      example: RUSSIA
+      
+    DragonsArray:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dragon'
+        page:
+          type: integer
+          example: 0
+        page_size:
+          type: integer
+          example: 10
+        num_pages:
+          type: integer
+          example: 5
+          
+    SortAndFilterOptions:      
+      type: object
+      properties:
+        sort:
+          type: array
+          description: 
+            Array of fields that are used for sorting. The "-" sign means sorting in descending order. Availible fields is "id", "name", "creationDate", "coordinates.x", "coordinates.y", "age", "color", "type", "character", "killer.name", "killer.weight", "killer.eyeColor" and "killer.nationality"
+          items:
+            type: string
+            example: coordinates.x
+            pattern: '^-?(id|name|creationDate|coordinates\.x|coordinates\.y|age|color|type|character|killer\.name|killer\.weight|killer\.eyeColor|killer\.nationality)$'
+          
+        filter:
+          type: array
+          description: Array of fields used for filtering. Each element must contain the field name, comparison sign and comparison value that will be used for filtering. Availible fields is "id", "name", "creationDate", "coordinates.x", "coordinates.y", "age", "color", "type", "character", "killer.name", "killer.weight", "killer.eyeColor" and "killer.nationality". Availible comparison sings is =, !=, <>, >, <, >=, <=
+          items:
+            $ref: '#/components/schemas/Filter'
+
+        page:
+          type: integer
+          description: Specifies the page number to be paginated. If used without the "pageSize" parameter, the default page size will be 10. If none of the parameters "page" or "pageSize" is used, then first page with default "pageSize" will be returned.
+          default: 0
+          minimum: 0
+        pageSize:
+          type: integer
+          description: The specified page size for pagination. If used without the "page" parameter, the first page will be displayed. If none of the parameters "page" or "pageSize" is used, then first page with default "pageSize" will be returned.
+          default: 10
+          minimum: 1
+    
+    Filter:
+      type: object
+      properties:
+        field:
+          type: string
+          example: name
+        sign:
+          type: string
+          example: =
+        target:
+          type: string
+          example: дракон
+    
+    Error400:
+      type: object
+      properties:
+          code:
+              type: integer
+              format: int64
+              example: 400
+          message:
+              type: string
+              example: Invalid given params value
+          time:
+              type: string
+              format: date-time
+    Error404:
+      type: object
+      properties:
+          code:
+              type: integer
+              format: int64
+              example: 404
+          message:
+              type: string
+              example: Not found
+          time:
+              type: string
+              format: date-time
+    Error422:
+      type: object
+      properties:
+          code:
+              type: integer
+              format: int64
+              example: 422
+          message:
+              type: string
+              example: Validation error
+          time:
+              type: string
+              format: date-time
+    Error500:
+      type: object
+      properties:
+          code:
+              type: integer
+              format: int64
+              example: 500
+          message:
+              type: string
+              example: Internal server error
+          time:
+              type: string
+              format: date-time

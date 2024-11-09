@@ -1,0 +1,109 @@
+openapi: 3.0.3
+info:
+  title: Второй (/killer) сервис
+  description: СОА лаб 1
+  version: 1.0.0
+servers:
+  - url: 'https://localhost:45392/api/v1'
+paths:
+  /killer/teams/create/{team-name}/{team-size}/{start-cave-id}:
+    post:
+      summary: Create a new dragon slayer team and save it in the database
+      description: Create a new dragon slayer team and save it in the database
+      requestBody:
+        description: Create a new dragon slayer team
+        content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    team-name:
+                      type: string
+                      example: Радиоактивные Люди
+                    team-size:
+                      type: integer
+                      minimum: 1
+                      example: 9
+                    start-cave-id:
+                      type: integer
+                      minimum: 1
+        required: true
+      tags:
+        - Killer
+      responses:
+        '200':
+          description: Successful operation returns team id
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+                example: 10
+        '400':
+          description: Invalid args supplied
+          content:
+            application/json:
+              schema:
+                $ref: './DragonService.yaml#/components/schemas/Error400'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: './DragonService.yaml#/components/schemas/Error500'
+
+  /killer/team/{team-id}/move/{cave-id}:
+    put:
+      summary: Send a team of dragon slayers to the specified cave
+      description: Send a team of dragon slayers to the specified cave
+      parameters:
+        - name: team-id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            exclusiveMinimum: true
+            example: 1
+        - name: cave-id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            exclusiveMinimum: true
+            example: 2
+      requestBody:
+        description: Update an existent dragon
+        content:
+          application/json:
+            schema:
+              $ref: './DragonService.yaml#/components/schemas/DragonRequest'
+        required: true
+      tags:
+        - Killer
+      responses:
+        '200':
+          description: Successful operation returns 1
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+                example: 1
+        '400':
+          description: Invalid args supplied
+          content:
+            application/json:
+              schema:
+                $ref: './DragonService.yaml#/components/schemas/Error400'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: './DragonService.yaml#/components/schemas/Error500'
